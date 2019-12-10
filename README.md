@@ -4,12 +4,24 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, foreign_key: true|
-|group|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
 - belongs_to :user
+
+
+## groupsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :groups_users
+_ has_many :users,  through:  : groups_users
+_ has_many :posts
 
 
 ## usersテーブル
@@ -17,32 +29,21 @@
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|nickname|string|null: false|
+|name|string|null: false|
 
 ### Association
-- has_many :tweets
-- has_many :comments
+- has_many :posts
+- has_many :groups
 
 
-## tweetsテーブル
+## postsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text||
+|image|image||
 |text|text||
-|user|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
-- has_many :comments
-
-
-## commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|text|text|null: false|
-|user|references|null: false, foreign_key: true|
-|group|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :tweet
-- belongs_to :user
+- belongs_to :group
+_ has_many :groups_users
+_ has_many :groups,  through:  : groups_users
