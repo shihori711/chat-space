@@ -33,7 +33,6 @@ _ has_many :posts
 
 ### Association
 - has_many :posts
-- has_many :groups
 - has_many :groups_users
 _ has_many :groups,  through:  : groups_users
 
