@@ -3,7 +3,7 @@
     .side-bar__user-name__username
       = current_user.name
     .side-bar__user-name__icons
-      = link_to '#', class: "side-bar__icon" do
+      = link_to new_group_path, class: "side-bar__icon" do
         %i.fas.fa-edit
         %span<>
       = link_to '#', class: "side-bar__icon" do
@@ -11,7 +11,10 @@
           -#  = link_to edit_user_path(current_user) do
           -# = icon('fas', 'cog', class: 'icon') 
   .side-bar__group-list
-    .groupname
-      curry
-    .post
-      rice
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .groupname
+            = group.name
+          .post
+            メッセージはまだありません。
