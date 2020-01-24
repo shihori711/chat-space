@@ -1,30 +1,54 @@
-.messages
-  = render @messages
-
 .chat-main
   .chat-main__header
     .chat-main__header__group
       .groupname
-        name
+        = @group.name
       .username
-        member
+        Member:
+        - @group.users.each do |user|
+          = user.name
     .chat-main__header__edit-btn
-      = link_to 'Edit', '#' 
-  .chat-main__message-list
-    .chat-main__message-list__message
-      .username
-      .date
-    .post
-  
+      = link_to 'Edit', edit_group_path(@group.id),class: "groupManage__edit"
+
+  .messages
+    = render @messages
 
   .chat-main__message-form
     = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'chat-main__message-form__new-message', placeholder: 'type a message'
-      .chat-main__message-form__new-message__input-box
-        = f.label :image, class: 'chat-main__message-form__new-message__input-box__image' do
+      .input-box
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
           = icon('fas', 'image', class: 'icon')
           = f.file_field :image, class: 'hidden'
-      = f.submit 'Send', class: 'chat-main__message-form__new-message__send-btn'
+      = f.submit 'Send', class: 'submit-btn'
 
 
- 
+
+
+-# .chat
+-#   .header
+-#     .left-header
+-#       .title
+-#       = @group.name
+-#       .members
+-#       - @group.users.each do |user|
+-#       = user.name
+      
+-#     .right-header
+-#       = link_to 'Edit', edit_group_path(@group.id), class: "groupManage__edit"
+      
+-#   .message
+-#     = render @messages
+-#     .upper-message
+-#       .username
+-#       .date
+-#     .lower-message
+
+-#   .form
+-#     = form_for [@group, @message] do |f|
+-#       = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+-#       .form__mask
+-#         = f.label :image, class: 'form__mask__image' do
+-#           = icon('fas', 'image', class: 'icon')
+-#           = f.file_field :image, class: 'hidden'
+-#       = f.submit 'Send', class: 'form__submit'
