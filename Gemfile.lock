@@ -257,6 +257,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   faker
+  font-awesome-rails
   font-awesome-sass
   haml-rails
   jbuilder (~> 2.5)
