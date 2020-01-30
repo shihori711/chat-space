@@ -19,37 +19,5 @@
         = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
         = f.label :image, class: 'input-box__image' do
           %i.fa.fa-image
-          -# = icon('fas', 'image', class: 'icon')
           = f.file_field :image, class: 'hidden'
       = f.submit 'Send', class: 'submit-btn'
-
-
-
-
--# .chat
--#   .header
--#     .left-header
--#       .title
--#       = @group.name
--#       .members
--#       - @group.users.each do |user|
--#       = user.name
-      
--#     .right-header
--#       = link_to 'Edit', edit_group_path(@group.id), class: "groupManage__edit"
-      
--#   .message
--#     = render @messages
--#     .upper-message
--#       .username
--#       .date
--#     .lower-message
-
--#   .form
--#     = form_for [@group, @message] do |f|
--#       = f.text_field :content, class: 'form__message', placeholder: 'type a message'
--#       .form__mask
--#         = f.label :image, class: 'form__mask__image' do
--#           = icon('fas', 'image', class: 'icon')
--#           = f.file_field :image, class: 'hidden'
--#       = f.submit 'Send', class: 'form__submit'
