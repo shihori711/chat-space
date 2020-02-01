@@ -94,12 +94,7 @@ $(function(){
         $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
       }
     })
-    .fail(function() {
-      console.log('error');
-    });
   };
-
-
 
   var buildHTML = function(message) {
     if (message.content && message.image) {
