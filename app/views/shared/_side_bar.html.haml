@@ -8,10 +8,9 @@
           = link_to new_group_path, class: "menu__new-group" do
             %i.fa.fa-edit
         %li.chat-side__side-header__box__menu__edit-user
-          = link_to '#', class: "menu__edit-user" do
+          = link_to edit_user_path(current_user), class: "menu__edit-user" do
             %i.fa.fa-cog
-          -#  = link_to edit_user_path(current_user) do
-          -# = icon('fas', 'cog', class: 'icon') 
+
   .chat-side__groups
     - current_user.groups.each do |group|
       .group
