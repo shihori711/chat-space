@@ -19,7 +19,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
-  config.secret_key = '1e138f23634df380c237d0da90fbedec405a33549cff40dbda0e9c58557caf31cb2a4b5ca9e0d8e15a565318950f18ecbbdf5b8d81ba6f09dd8bd2d610fa365a'
+ 
   # Process files as they are uploaded:
   # process scale: [200, 300]
   process resize_to_fit: [800, 800]
